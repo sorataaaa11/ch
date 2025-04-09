@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+   <style>
+    body{
+        background-color: limegreen;
+    }
+    .q{
+        position: absolute;
+        top: 0;
+        left:0;
+        right: 0;
+        height: 50vh;
+        background-color: aqua;
+        border: none;
+        font-size: 5vh;
+        color: black;
+    }
+    .b{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        border: black;
+        font-size: 29px;
+        color: black;
+    }
+    .a{
+        position: absolute;
+        bottom:  0;
+        left:0;
+        right: 0;
+        height: 50vh;
+        background-color:green ;
+        border: none;
+        font-size: 5vh;
+        color: black;
+        opacity: 0;
+    }
+   </style>
+</head>
+<body>
+    <button id='q' class="q"></button>
+    <button id="a" class="a"></button>
+    <button id="b" class="b">back</button>
+    <script>
+       function shuffleQnA(questions, answers) {
+    if (questions.length !== answers.length) {
+        throw new Error("Questions and answers must be the same length.");
+    }
+
+    // Create an array of indices
+    const indices = questions.map((_, i) => i);
+
+    // Shuffle the indices
+    for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+
+    // Apply the shuffled indices to questions and answers
+    const shuffledQuestions = indices.map(i => questions[i]);
+    const shuffledAnswers = indices.map(i => answers[i]);
+
+    return { shuffledQuestions, shuffledAnswers };
+}
+
+
+        n = 0
+        const q = ['the mediums cause SCC for Aluminum alloys are', 'the mediums cause SCC for Copper alloys are', 'the mediums cause SCC for Ordinary steels  are', 'the mediums cause SCC for Stainless steel are', 'NaCl-H2O2 solutions make SCC for', 'NaCl solutions make scc for', 'in inorganic coating by Chemical oxidation we can treat the steel with hot alkaline ....... , ........ , .......', 'in Phosphating coating we dip steel in ', 'in Phosphating coating why iron phosphate is not so protective layer', 'in Phosphating coating why is iron phosphate layer so important ', 'what is enamels coating basicly', 'the Cement coating is usually used in coating the outer surface of a pipeline TRUE OR FALSE', 'mention TWO wayes to clean the steel of oxides', 'what is Pb3O4 name', 'name pegments and their functions in an organic coat', 'name a function of primer film in organic coat', 'what is the mechanism of Cathodic inhibitors', '𝐙𝐧𝐒𝐎𝟒, 𝐌𝐠𝐒𝐎𝟒 and 𝐂𝐚(𝐇𝐂𝐎𝟑)2 are ......', 'what is the mechanism of oxygen scavangers', '𝐍𝐚𝐒𝐎4 and 𝐍𝟐𝐇4 are .....', 'In high pressure boilers water is produced due to hydrazine True or false', 'In high pressure boilers we use ...... oxygen scavenger', 'In low pressure boilers we use ...... oxygen scavenger', 'what is the mechanism of anodic inhibitors', '𝐍𝐚𝐒𝐢𝐎𝟑,𝐍𝐚𝟐𝐂𝐎𝟑 and 𝐍𝐚𝟑𝐏𝐎4 are.....', 'what is the mechanism of passivators', 'sacrificial protection by connecting steel pipeline with zinc so that the zn corrodes is a type of elictrical anodic protection TRUE OR FALSE', 'in impressed current pipeline protection , iron scrap is the anode and connected to the +ve pole of the battary TRUE OR FALSE', 'what is the proper Material of construction for HCl medium', 'what is the proper Material of construction for H2SO4 > 70%  medium', 'what is the proper Material of construction for H2SO4 < 70%medium', 'what is the proper Material of construction for Alkaline solutions medium', 'FeCl3 is consided an oxidizing agent True or false', 'what is the proper Material of construction for Oxidizing solutions such as Na2Cr2O7,H2O2, FeCl3, etc medium', 'brass is a copper alloy true or false', 'what is the proper Material of construction for Sea water ', 'what is the proper Material of construction for Organic acids and phosphoric acid', 'what is the proper Material of construction for HNO3( > 80%) ', 'what is the proper Material of construction for HNO3( < 80%) ']
+
+        const a = ['NaCl-H2O2 solutions & NaCl solutions & Sea water, Air-water vapor', 'Ammonia vapor and solution,Amines, Water, Water vapor', 'NaOH solutions , Mixed acids (H2SO4 -HNO2 ) , Acidic H2S solutions , Sea water', 'Acidic chloride solutions such as MgCl2 and BaCl2 ,NaCl-H2O2 solutions, Sea water, H2S , NaOH-H2S solutions , Condensing steam from chloride waters', 'Aluminum alloys ,Stainless steel', 'Aluminum alloys', 'nitrite, or per-sulphated or perchlorate', 'phosphoric acid and zinc phosphate.', 'because it is porous', 'The phosphate film improves the bond between the metal and the paint', 'a glassy coating layer', 'False the inner surface', 'sand blasting or acid pickling.', 'red lead', 'red lead and zinc chromate which oxidize the steel surface and inhibits its corrosion', 'increases the strength of the bond between steel and final paint film', 'making ppts by reacting with OH- produced on cathod in order to isolate it so th e reaction stops', 'cath inhibitors', 'makes the cath reaction not even able to start by reacting with the oxygen', 'oxygen scavangers', 'true', 'NaSO3', 'hydrazine', 'ihibits the anodic reaction by reacting with iron ion produced from anod reaction forming ppts on the anod stops its reaction', 'anodic inhibitors', 'it is oxadizing agents makes a passive oxide layers on the metal(طبقات خاملة)', 'false cath protection', 'true', 'Tantalum, steel lined with plastic or graphite', 'Steel', 'Lead or steel lined with lead', 'Nickel and its alloys', 'true', 'Titanium and its alloys', 'true', 'Copper alloys and stainless steel', 'High Si steel (15% Si)', 'Aluminum', 'Stainless steel']
+        const { shuffledQuestions, shuffledAnswers } = shuffleQnA(q, a);
+
+
+        document.getElementById('q').innerText = shuffledQuestions[n]
+        document.getElementById('a').innerText = shuffledAnswers[n]
+        document.getElementById('b').addEventListener("click",()=>{
+            n -= 1
+            document.getElementById('q').innerText = shuffledQuestions[n]
+        document.getElementById('a').innerText = shuffledAnswers[n]
+        document.getElementById('a').style.opacity = '0'
+        })
+        document.getElementById('q').addEventListener("click",()=>{
+            n += 1
+            document.getElementById('q').innerText = shuffledQuestions[n]
+        document.getElementById('a').innerText = shuffledAnswers[n]
+        document.getElementById('a').style.opacity = '0'
+        })
+        document.getElementById('a').addEventListener("click",()=>{
+            document.getElementById('a').style.opacity = '1'
+        })
+        
+    </script>
+</body>
+</html>

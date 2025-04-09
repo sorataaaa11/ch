@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+   <style>
+    body{
+        background-color: limegreen;
+    }
+    .q{
+        position: absolute;
+        top: 0;
+        left:0;
+        right: 0;
+        height: 50vh;
+        background-color: aqua;
+        border: none;
+        font-size: 5vh;
+        color: black;
+    }
+    .b{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        border: black;
+        font-size: 29px;
+        color: black;
+    }
+    .a{
+        position: absolute;
+        bottom:  0;
+        left:0;
+        right: 0;
+        height: 50vh;
+        background-color:green ;
+        border: none;
+        font-size: 5vh;
+        color: black;
+        opacity: 0;
+    }
+   </style>
+</head>
+<body>
+    <button id='q' class="q"></button>
+    <button id="a" class="a"></button>
+    <button id="b" class="b">back</button>
+    <script>
+       function shuffleQnA(questions, answers) {
+    if (questions.length !== answers.length) {
+        throw new Error("Questions and answers must be the same length.");
+    }
+
+    // Create an array of indices
+    const indices = questions.map((_, i) => i);
+
+    // Shuffle the indices
+    for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+
+    // Apply the shuffled indices to questions and answers
+    const shuffledQuestions = indices.map(i => questions[i]);
+    const shuffledAnswers = indices.map(i => answers[i]);
+
+    return { shuffledQuestions, shuffledAnswers };
+}
+
+
+        n = 0
+        const q = ['Another name of Diesel', 'what is petrol and petrlium', 'water gas is ..... fuel and gas oil is ..... fuel', 'API < 25 ', 'API ]25,35[', 'API > 35', 'sweet crude has ..... of s', 'sour crude has ..... of s', 'what poisons the catalyst', 'what does n-content make in catalysts', 'what is gum formation n-content causes ', 'in distillation towers which is over the others gasoline , diesel , kerosene', 'we can get the light diesil by .... dist', 'we can get heavy diesilby ... dist', 'the wet nat.gas has more than ......% of methane and .......', 'condisable gases are from c... to c...', 'refinery gases obtained from dist of the crude .......', 'refinery gases obtained from cracking and reforming .......', 'in cold , lPG conatains ... more than......', 'ignation quality of gasoline is to perform self ignation easly true of false', 'ignation quality is expressed by ', ' the amount of iso octane in gasoline epresses......', ' the amount of hyptane in gasoline epresses......', 'smoke point of kerosene is the maximum hight in cm fo a flame without giving smoke true or false', 'flash point is the minimum temp at which th feul forms enough explosive mix t or f', 'lupicating oil which is  20w is used for .....', 'lupicating oil which is 15w50 is better in ....', 'if parffin wax in a lupricating oil is high its pour point is....', 'what is pour point', 'if L.O is oxidised it causes corrosion for the materials TRUE OR FALSE']
+
+
+        const a = ['gaz oil', 'petrol is gazoline - petrolium(المادة الخام نفسها)', 'water gas is gasous fuel , gas oil is liquid fuel', 'HEAVY CRUDE', 'INTERMIDIATE CRUDE', 'LIGHT CRUDE', 's<0.5%', '(1-2)% s', 's', 'decreases their activity', 'عملية بلمرة فى وجود الاوليفينات بتسد محركات العربية', 'gasoline over kerosene over diesel ', 'atm', 'vacuum', '84 condisable gasses', '2-7', 'almost like the natural gas', 'have alot of olifins', 'propane more than butane', 'false', 'O.N', 'its ability to resist self ignation', 'its tendency to self ignation', 'false in mm', 't', 'winter', 'summer', 'high', 'the lowes temp at which the L.O stop behaving as a liquid', 'true']
+        const { shuffledQuestions, shuffledAnswers } = shuffleQnA(q, a);
+
+
+        document.getElementById('q').innerText = shuffledQuestions[n]
+        document.getElementById('a').innerText = shuffledAnswers[n]
+        document.getElementById('b').addEventListener("click",()=>{
+            n -= 1
+            document.getElementById('q').innerText = shuffledQuestions[n]
+        document.getElementById('a').innerText = shuffledAnswers[n]
+        document.getElementById('a').style.opacity = '0'
+        })
+        document.getElementById('q').addEventListener("click",()=>{
+            n += 1
+            document.getElementById('q').innerText = shuffledQuestions[n]
+        document.getElementById('a').innerText = shuffledAnswers[n]
+        document.getElementById('a').style.opacity = '0'
+        })
+        document.getElementById('a').addEventListener("click",()=>{
+            document.getElementById('a').style.opacity = '1'
+        })
+        
+    </script>
+</body>
+</html>
